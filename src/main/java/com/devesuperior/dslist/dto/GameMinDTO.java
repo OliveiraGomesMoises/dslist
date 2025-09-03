@@ -1,6 +1,6 @@
 package com.devesuperior.dslist.dto;
 
-import com.devesuperior.dslist.entities.Games;
+import com.devesuperior.dslist.entities.Game;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -15,7 +15,7 @@ public class GameMinDTO {
     public GameMinDTO() {
     }
 
-    public GameMinDTO(Games entity) {
+    public GameMinDTO(Game entity) {
         this.id = entity.getId();
         this.title = entity.getTitle();
         this.year = entity.getYear();
@@ -23,7 +23,7 @@ public class GameMinDTO {
         this.shortDescription = entity.getShortDescription();
     }
 
-    public static List<GameMinDTO> converte(List<Games> result) {
+    public static List<GameMinDTO> converte(List<Game> result) {
         return result.stream().map(GameMinDTO::new).collect(Collectors.toList());
     }
 

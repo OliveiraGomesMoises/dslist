@@ -6,28 +6,29 @@ import jakarta.persistence.ManyToOne;
 
 import java.util.Objects;
 @Embeddable
-public class BelonginPk {
+public class BelongingPk {
     @ManyToOne
     @JoinColumn(name = "game_id")
-    private Games games;
+    private Game game;
     @ManyToOne
     @JoinColumn(name = "list_id")
     private GameList list;
-    public BelonginPk(Games games, GameList list) {
-        this.games = games;
+
+    public BelongingPk(Game game, GameList list) {
+        this.game = game;
         this.list = list;
     }
 
-    public BelonginPk(){
+    public BelongingPk() {
 
     }
 
-    public Games getGames() {
-        return games;
+    public Game getGames() {
+        return game;
     }
 
-    public void setGames(Games games) {
-        this.games = games;
+    public void setGames(Game game) {
+        this.game = game;
     }
 
     public GameList getList() {
@@ -42,7 +43,7 @@ public class BelonginPk {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        BelonginPk that = (BelonginPk) o;
+        BelongingPk that = (BelongingPk) o;
         return Objects.equals(getGames(), that.getGames()) && Objects.equals(getList(), that.getList());
     }
 
