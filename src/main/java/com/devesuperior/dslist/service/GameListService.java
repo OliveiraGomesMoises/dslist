@@ -1,12 +1,8 @@
 package com.devesuperior.dslist.service;
 
 import com.devesuperior.dslist.GameListDTO;
-import com.devesuperior.dslist.dto.GameDTO;
-import com.devesuperior.dslist.dto.GameMinDTO;
-import com.devesuperior.dslist.entities.Game;
 import com.devesuperior.dslist.entities.GameList;
 import com.devesuperior.dslist.repository.GameListRepository;
-import com.devesuperior.dslist.repository.GameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
