@@ -1,14 +1,12 @@
 package com.devesuperior.dslist.controller;
 
 import com.devesuperior.dslist.GameListDTO;
+import com.devesuperior.dslist.ReposicionamentoDTO;
 import com.devesuperior.dslist.dto.GameMinDTO;
 import com.devesuperior.dslist.service.GameListService;
 import com.devesuperior.dslist.service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,5 +26,9 @@ public class GameListController {
     public List<GameMinDTO> findByList(@PathVariable Long listId){
         List<GameMinDTO> result = gameService.findByList(listId);
         return result;
+    }
+    @PostMapping (value = "/{listId}/reposicionamento")
+    public void move(@PathVariable Long listId, @RequestBody ReposicionamentoDTO body){
+        gameListService.move(listId,body.getSourceIndex(), body.getDestinationIndex());
     }
 }
